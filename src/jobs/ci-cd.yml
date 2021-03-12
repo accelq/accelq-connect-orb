@@ -1,0 +1,50 @@
+description: >
+  Execute ACCELQ registered CI Jobs
+
+docker:
+  - image: 'cimg/node:lts'
+
+parameters:
+  url:
+    type: string
+    default: ""
+    description: "ACCELQ URL"
+  tenant:
+    type: string
+    default: ""
+    description: "ACCELQ Tenant Code"  
+  project-name:
+    type: string
+    default: ""
+    description: "ACCELQ Project Name"
+  job-id:
+    type: string
+    default: ""
+    description: "ACCELQ CI Job Id"
+  user:
+    type: string
+    default: ""
+    description: "ACCELQ User Id"
+  password:
+    type: string
+    default: ""
+    description: "ACCELQ User Password"
+  agent-name:
+    type: string
+    default: ""
+    description: "ACCELQ Agent Name"
+  runparams:
+    type: string
+    default: ""
+    description: "ACCELQ Run Params example(Customer Name=John Todd & Customer Id=232)"
+steps:
+  - accelq-ci:
+      url: << parameters.url >>
+      tenant: << parameters.tenant >>
+      project-name: << parameters.project-name >>
+      job-id: << parameters.job-id >>
+      user: << parameters.user >>
+      password: << parameters.password >>
+      agent-name: << parameters.agent-name >>
+      runparams: << parameters.runparams >>
+      
