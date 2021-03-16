@@ -26,13 +26,20 @@ jobs:
   # Define one or more jobs which will utilize your orb's commands and parameters to validate your changes.
   integration-test-1:
     docker:
-      - image: cimg/base:stable
+      - image: "cimg/node:lts"
     steps:
       - checkout
       # "greet" is a sample command packaged with this orb config.
       # This sample integration test will run as long as the greet command exists. Once you remove the greet command you should remove this line.
       # Push new changes first, before adding new tests to your config.
-      - accelq-connect/greet
+      - accelq-connect/accelq-ci:
+          url: "https://poc.accelq.io"
+          tenant: "demo"
+          project-name: "Amar Qbank"
+          job-id: "342897"
+          user: "vivekyop@yopmail.com"
+          password: "my_azure_pass"
+          agent-name: "POC_Agent"
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
@@ -51,18 +58,15 @@ workflows:
       # If you accept building open source forks, protect your secrects behind a restricted context.
       # A job containing restricted context (which holds your orb publishing credentials) may only be accessed by a user with proper permissions.
       # An open source user may begin a pipeline with a PR, and once the pipeline is approved by an authorized user at this point, the pipeline will continue with the proper context permissions.
-      - hold-for-dev-publish:
-          type: approval
+      # Publish development version(s) of the orb.
+      - orb-tools/publish-dev:
+          orb-name: accelq/accelq-connect
+          context: orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
           requires:
             - orb-tools/lint
             - orb-tools/pack
             - bats/run
             - shellcheck/check
-      # Publish development version(s) of the orb.
-      - orb-tools/publish-dev:
-          orb-name: accelq/accelq-connect
-          context: orb-publishing # A restricted context containing your private publishing credentials. Will only execute if approved by an authorized user.
-          requires: [hold-for-dev-publish]
       # Trigger an integration workflow to test the
       # dev:${CIRCLE_SHA1:0:7} version of your orb
       - orb-tools/trigger-integration-tests-workflow:

@@ -1,0 +1,44 @@
+description: >
+  This command runs the ACCELQ CI Job using NodeJS make sure its installed.
+parameters:
+  url:
+    type: string
+    default: ""
+    description: "ACCELQ URL"
+  tenant:
+    type: string
+    default: ""
+    description: "ACCELQ Tenant Code"
+  project-name:
+    type: string
+    default: ""
+    description: "ACCELQ Project Name"
+  job-id:
+    type: string
+    default: ""
+    description: "ACCELQ CI Job Id"
+  user:
+    type: string
+    default: ""
+    description: "ACCELQ User Id"
+  password:
+    type: env_var_name
+    description: "ACCELQ User Password(Environment Variable containing the password)"
+  agent-name:
+    type: string
+    default: ""
+    description: "ACCELQ Agent Name"
+  runparams:
+    type: string
+    default: ""
+    description: "ACCELQ Run Params example(Customer Name=John Todd & Customer Id=232)"
+steps:
+  - run:
+      name: Trigger ACCELQ CI Job
+      command: |
+        wget https://accelq.s3.amazonaws.com/releases/plugins/latest/aq-vsts-azure-plugin-latest.tar.gz
+        tar xvzf aq-vsts-azure-plugin-latest.tar.gz
+        cd aq-vsts-azure-plugin-latest
+        ls -al
+        npm install
+        node app.js  --url << parameters.url >> --tenant << parameters.tenant >> --project << parameters.project-name >> --user << parameters.user >> --password $<< parameters.password >> --jobid << parameters.job-id >> --agent << parameters.agent-name >> <<#parameters.runparams>> --runparams <<parameters.runparams>> <</parameters.runparams>>
