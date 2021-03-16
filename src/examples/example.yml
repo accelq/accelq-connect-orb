@@ -10,11 +10,11 @@ usage:
   workflows:
     use-my-orb:
       jobs:
-        - accelq-connect/accelq-ci
-          url: "https://poc.accelq.io"
-          tenant: "demo"
-          project-name: "Amar Qbank"
-          job-id: "342897"
-          user: "vivekyop@yopmail.com"
-          password: "Q2hhbmdlTWUx"
-          agent-name: "POC_Agent"
+        - accelq-connect/accelq-ci:
+            url: "https://poc.accelq.io"
+            tenant: "demo"
+            project-name: "Amar Qbank"
+            job-id: "342897"
+            user: "vivekyop@yopmail.com"
+            password: "Q2hhbmdlTWUx"
+            agent-name: "POC_Agent"
