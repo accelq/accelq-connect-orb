@@ -8,7 +8,7 @@ parameters:
   tenant:
     type: string
     default: ""
-    description: "ACCELQ Tenant Code"  
+    description: "ACCELQ Tenant Code"
   project-name:
     type: string
     default: ""
@@ -34,7 +34,7 @@ parameters:
     default: ""
     description: "ACCELQ Run Params example(Customer Name=John Todd & Customer Id=232)"
 steps:
-  - run: 
+  - run:
       name: Trigger ACCELQ CI Job
       command: |
         wget https://accelq.s3.amazonaws.com/releases/plugins/latest/aq-vsts-azure-plugin-latest.tar.gz
@@ -42,4 +42,4 @@ steps:
         cd aq-vsts-azure-plugin-latest
         ls -al
         npm install
-        node app.js  --url << parameters.url >> --tenant << parameters.tenant >> --project << parameters.project-name >> --user << parameters.user >> --password << parameters.password >> --jobid << parameters.job-id >> --agent << parameters.agent-name >> <<#parameters.runparams>> --runparams <<parameters.runparams>> <</parameters.runparams>> 
+        node app.js  --url << parameters.url >> --tenant << parameters.tenant >> --project << parameters.project-name >> --user << parameters.user >> --password << parameters.password >> --jobid << parameters.job-id >> --agent << parameters.agent-name >> <<#parameters.runparams>> --runparams <<parameters.runparams>> <</parameters.runparams>>

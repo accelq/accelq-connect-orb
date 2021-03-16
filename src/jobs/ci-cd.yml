@@ -2,7 +2,7 @@ description: >
   Execute ACCELQ registered CI Jobs
 
 docker:
-  - image: 'cimg/node:lts'
+  - image: "cimg/node:lts"
 
 parameters:
   url:
@@ -12,7 +12,7 @@ parameters:
   tenant:
     type: string
     default: ""
-    description: "ACCELQ Tenant Code"  
+    description: "ACCELQ Tenant Code"
   project-name:
     type: string
     default: ""
@@ -47,4 +47,3 @@ steps:
       password: << parameters.password >>
       agent-name: << parameters.agent-name >>
       runparams: << parameters.runparams >>
-      
