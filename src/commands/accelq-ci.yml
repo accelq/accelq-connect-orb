@@ -22,9 +22,9 @@ parameters:
     default: ""
     description: "ACCELQ User Id"
   password:
-    type: string
+    type: env_var_name
     default: ""
-    description: "ACCELQ User Password"
+    description: "ACCELQ User Password(Environment Variable containing the password)"
   agent-name:
     type: string
     default: ""
@@ -42,4 +42,4 @@ steps:
         cd aq-vsts-azure-plugin-latest
         ls -al
         npm install
-        node app.js  --url << parameters.url >> --tenant << parameters.tenant >> --project << parameters.project-name >> --user << parameters.user >> --password << parameters.password >> --jobid << parameters.job-id >> --agent << parameters.agent-name >> <<#parameters.runparams>> --runparams <<parameters.runparams>> <</parameters.runparams>>
+        node app.js  --url << parameters.url >> --tenant << parameters.tenant >> --project << parameters.project-name >> --user << parameters.user >> --password $<< parameters.password >> --jobid << parameters.job-id >> --agent << parameters.agent-name >> <<#parameters.runparams>> --runparams <<parameters.runparams>> <</parameters.runparams>>

@@ -38,7 +38,7 @@ jobs:
           project-name: "Amar Qbank"
           job-id: "342897"
           user: "vivekyop@yopmail.com"
-          password: "Q2hhbmdlTWUx"
+          password: "my_azure_pass"
           agent-name: "POC_Agent"
 
 workflows:
