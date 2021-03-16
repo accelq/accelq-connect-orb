@@ -27,7 +27,6 @@ parameters:
     description: "ACCELQ User Id"
   password:
     type: env_var_name
-    default: ""
     description: "ACCELQ User Password(Environment Variable containing the password)"
   agent-name:
     type: string
