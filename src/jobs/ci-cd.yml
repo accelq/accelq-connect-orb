@@ -7,30 +7,24 @@ docker:
 parameters:
   url:
     type: string
-    default: ""
     description: "ACCELQ URL"
   tenant:
     type: string
-    default: ""
     description: "ACCELQ Tenant Code"
   project-name:
     type: string
-    default: ""
     description: "ACCELQ Project Name"
   job-id:
     type: string
-    default: ""
     description: "ACCELQ CI Job Id"
   user:
     type: string
-    default: ""
     description: "ACCELQ User Id"
   password:
     type: env_var_name
     description: "ACCELQ User Password(Environment Variable containing the password)"
   agent-name:
     type: string
-    default: ""
     description: "ACCELQ Agent Name"
   runparams:
     type: string

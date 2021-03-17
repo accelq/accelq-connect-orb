@@ -12,9 +12,9 @@ usage:
       jobs:
         - accelq-connect/accelq-ci:
             url: "https://poc.accelq.io"
-            tenant: "demo"
-            project-name: "Amar Qbank"
-            job-id: "342897"
-            user: "vivekyop@yopmail.com"
-            password: "Q2hhbmdlTWUx"
-            agent-name: "POC_Agent"
+            tenant: "demotenant"
+            project-name: "Vivek Qbank"
+            job-id: "340897"
+            user: "vivekop@yopmail.com"
+            password: "QdlTWUx"
+            agent-name: "POC"
