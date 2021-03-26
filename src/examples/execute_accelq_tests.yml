@@ -1,5 +1,5 @@
 description: >
-  Use ACCELQ Orb to trigger scheduled CI jobs registered in ACCELQ application. 
+  Use ACCELQ Orb to trigger scheduled CI jobs registered in ACCELQ application.
 
 usage:
   version: 2.1

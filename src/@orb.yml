@@ -1,7 +1,7 @@
 version: 2.1
 
 description: >
-  Use ACCELQ Orb to trigger scheduled CI jobs registered in ACCELQ application. 
+  Use ACCELQ Orb to trigger scheduled CI jobs registered in ACCELQ application.
 display:
   home_url: "https://www.accelq.com"
   source_url: "https://github.com/accelq/accelq-connect-orb"
