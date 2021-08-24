@@ -12,7 +12,7 @@ parameters:
     type: string
     description: "ACCELQ User ID"
   apiKey:
-    type: string
+    type: env_var_name
     description: "API key available in Profile section of ACCELQ"
   tenantCode:
     type: string
