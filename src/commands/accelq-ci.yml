@@ -41,4 +41,4 @@ steps:
         cd out
         ls -al
         npm install
-        node app.js  --url << parameters.url >> --tenantCode << parameters.tenantCode >> --apiKey << parameters.apiKey >> --userId << parameters.userId >> --jobId << parameters.jobId >> <<#parameters.proxyHost>> --proxyHost <<parameters.proxyHost>> <</parameters.proxyHost>> <<#parameters.proxyPort>> --proxyPort <<parameters.proxyPort>> <</parameters.proxyPort>> <<#parameters.agentName>> --agentName <<parameters.agentName>> <</parameters.agentName>> <<#parameters.runparams>> --runparams <<parameters.runparams>> <</parameters.runparams>>
+        node app.js  --url << parameters.url >> --tenantCode << parameters.tenantCode >> --apiKey << parameters.apiKey >> --userID << parameters.userId >> --jobID << parameters.jobId >> <<#parameters.proxyHost>> --proxyHost <<parameters.proxyHost>> <</parameters.proxyHost>> <<#parameters.proxyPort>> --proxyPort <<parameters.proxyPort>> <</parameters.proxyPort>> <<#parameters.agentName>> --agentName <<parameters.agentName>> <</parameters.agentName>> <<#parameters.runparams>> --runParams <<parameters.runparams>> <</parameters.runparams>>
