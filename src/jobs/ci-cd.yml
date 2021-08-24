@@ -25,12 +25,15 @@ parameters:
     default: ""
     description: 'Run Params (Optional) should be JSON string form example: {"username": "John Todd", "password": "bxW&=UVw"}'
   proxyHost:
+    default: ""
     type: string
     description: "Proxy Host (Optional)"
   proxyPort:
+    default: ""
     type: string
     description: "Proxy Port (Optional)"
   agentName:
+    default: ""
     type: string
     description: "Agent Name (Optional) on which you want to run this job"
 steps:
