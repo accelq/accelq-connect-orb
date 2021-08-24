@@ -23,16 +23,16 @@ parameters:
   runparams:
     type: string
     default: ""
-    description: 'Run Params should be JSON string form example: {"username": "John Todd", "password": "bxW&=UVw"}'
+    description: 'Run Params (Optional) should be JSON string form example: {"username": "John Todd", "password": "bxW&=UVw"}'
   proxyHost:
     type: string
-    description: "Proxy Host"
+    description: "Proxy Host (Optional)"
   proxyPort:
     type: string
-    description: "Proxy Port"
+    description: "Proxy Port (Optional)"
   agentName:
     type: string
-    description: "Agent Name on which you want to run this job"
+    description: "Agent Name (Optional) on which you want to run this job"
 steps:
   - accelq-ci:
       url: << parameters.url >>
