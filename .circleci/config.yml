@@ -35,7 +35,7 @@ jobs:
       - accelq-connect/accelq-ci:
           url: "https://poc.accelq.io"
           tenantCode: "democopy"
-          jobId: "130"
+          jobId: "137"
           userId: "vivek@yopmail.com"
           apiKey: "my_azure_pass"
 
