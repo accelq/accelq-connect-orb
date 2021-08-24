@@ -3,36 +3,39 @@ description: >
 parameters:
   url:
     type: string
-    description: "ACCELQ URL"
-  tenant:
+    description: "Your ACCELQ Application URL in the exact following format: https://<hostname>:<port_num>"
+  userId:
+    type: string
+    description: "ACCELQ User ID"
+  apiKey:
+    type: string
+    description: "API key available in Profile section of ACCELQ"
+  tenantCode:
     type: string
     description: "ACCELQ Tenant Code"
-  project-name:
-    type: string
-    description: "ACCELQ Project Name"
-  job-id:
+  jobId:
     type: string
     description: "ACCELQ CI Job Id"
-  user:
-    type: string
-    description: "ACCELQ User Id"
-  password:
-    type: env_var_name
-    description: "ACCELQ User Password(Environment Variable containing the password)"
-  agent-name:
-    type: string
-    description: "ACCELQ Agent Name"
   runparams:
     type: string
     default: ""
-    description: "ACCELQ Run Params example(Customer Name=John Todd & Customer Id=232)"
+    description: 'Run Params should be JSON string form example: {"username": "John Todd", "password": "bxW&=UVw"}'
+  proxyHost:
+    type: string
+    description: "Proxy Host"
+  proxyPort:
+    type: string
+    description: "Proxy Port"
+  agentName:
+    type: string
+    description: "Agent Name on which you want to run this job"
 steps:
   - run:
       name: Trigger ACCELQ CI Job
       command: |
-        wget https://accelq.s3.amazonaws.com/releases/plugins/latest/aq-vsts-azure-plugin-latest.tar.gz
-        tar xvzf aq-vsts-azure-plugin-latest.tar.gz
-        cd aq-vsts-azure-plugin-latest
+        wget https://accelq.s3.amazonaws.com/releases/plugins/5.0/accelq_ci_cd.tar.gz
+        tar xvzf accelq_ci_cd.tar.gz
+        cd out
         ls -al
         npm install
-        node app.js  --url << parameters.url >> --tenant << parameters.tenant >> --project << parameters.project-name >> --user << parameters.user >> --password $<< parameters.password >> --jobid << parameters.job-id >> --agent << parameters.agent-name >> <<#parameters.runparams>> --runparams <<parameters.runparams>> <</parameters.runparams>>
+        node app.js  --url << parameters.url >> --tenantCode << parameters.tenantCode >> --apiKey << parameters.apiKey >> --userId << parameters.userId >> --jobId << parameters.jobId >> <<#parameters.proxyHost>> --proxyHost <<parameters.proxyHost>> <</parameters.proxyHost>> <<#parameters.proxyPort>> --proxyPort <<parameters.proxyPort>> <</parameters.proxyPort>> <<#parameters.agentName>> --agentName <<parameters.agentName>> <</parameters.agentName>> <<#parameters.runparams>> --runparams <<parameters.runparams>> <</parameters.runparams>>

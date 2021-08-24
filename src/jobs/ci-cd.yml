@@ -7,36 +7,40 @@ docker:
 parameters:
   url:
     type: string
-    description: "ACCELQ URL"
-  tenant:
+    description: "Your ACCELQ Application URL in the exact following format: https://<hostname>:<port_num>"
+  userId:
+    type: string
+    description: "ACCELQ User ID"
+  apiKey:
+    type: string
+    description: "API key available in Profile section of ACCELQ"
+  tenantCode:
     type: string
     description: "ACCELQ Tenant Code"
-  project-name:
-    type: string
-    description: "ACCELQ Project Name"
-  job-id:
+  jobId:
     type: string
     description: "ACCELQ CI Job Id"
-  user:
-    type: string
-    description: "ACCELQ User Id"
-  password:
-    type: env_var_name
-    description: "ACCELQ User Password(Environment Variable containing the password)"
-  agent-name:
-    type: string
-    description: "ACCELQ Agent Name"
   runparams:
     type: string
     default: ""
-    description: "ACCELQ Run Params example(Customer Name=John Todd & Customer Id=232)"
+    description: 'Run Params should be JSON string form example: {"username": "John Todd", "password": "bxW&=UVw"}'
+  proxyHost:
+    type: string
+    description: "Proxy Host"
+  proxyPort:
+    type: string
+    description: "Proxy Port"
+  agentName:
+    type: string
+    description: "Agent Name on which you want to run this job"
 steps:
   - accelq-ci:
       url: << parameters.url >>
-      tenant: << parameters.tenant >>
-      project-name: << parameters.project-name >>
-      job-id: << parameters.job-id >>
-      user: << parameters.user >>
-      password: << parameters.password >>
-      agent-name: << parameters.agent-name >>
+      tenantCode: << parameters.tenantCode >>
+      jobId: << parameters.jobId >>
+      apiKey: << parameters.apiKey >>
+      userId: << parameters.userId >>
+      agentName: << parameters.agentName >>
+      proxyHost: << parameters.proxyHost >>
+      proxyPort: << parameters.proxyPort >>
       runparams: << parameters.runparams >>

@@ -10,9 +10,11 @@ usage:
       jobs:
         - accelq-connect/accelq-ci:
             url: "https://poc.accelq.io"
-            tenant: "demotenant"
-            project-name: "Vivek Qbank"
-            job-id: "340897"
-            user: "vivekop@yopmail.com"
-            password: "QdlTWUx"
-            agent-name: "POC"
+            tenantCode: "demotenant"
+            apiKey: "XyzAvsdfwe2322sdf"
+            userId: "vivekop@yopmail.com"
+            jobId: "1"
+            runparams: '{"username": "john todd", "userID": 2}'
+            agentName: "POC"
+            proxyHost: "localhost"
+            proxyPort: "9090"
