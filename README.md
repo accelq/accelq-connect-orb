@@ -1,6 +1,6 @@
 # Orb Project Template
 
-Execute ACCELQ CI Jobs from CircleCI
+Sample Template to execute ACCELQ CI Jobs from CircleCI
 
 ## Sample input template
 <pre>
