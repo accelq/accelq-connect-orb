@@ -32,6 +32,10 @@ parameters:
     default: ""
     type: string
     description: "Agent Name (Optional) on which you want to run this job"
+  stepFailureThreshold:
+    default: "0"
+    type: string
+    description: "Percentage ACCELQ test case failure (Optional), beyond which this Step in the Pipeline will be marked as a failure. If this is zero, even a single failed test will cause the Step to fail. If you never want to fail the Pipeline Step due to failing Automation tests, input -1. Input a valid integer between 0 and 100 or, -1."
 steps:
   - run:
       name: Trigger ACCELQ CI Job
@@ -41,4 +45,4 @@ steps:
         cd out
         ls -al
         npm install
-        node app.js  --url << parameters.url >> --tenantCode << parameters.tenantCode >> --apiKey $<< parameters.apiKey >> --userID << parameters.userId >> --jobID << parameters.jobId >> <<#parameters.proxyHost>> --proxyHost <<parameters.proxyHost>> <</parameters.proxyHost>> <<#parameters.proxyPort>> --proxyPort <<parameters.proxyPort>> <</parameters.proxyPort>> <<#parameters.agentName>> --agentName <<parameters.agentName>> <</parameters.agentName>> <<#parameters.runparams>> --runParams <<parameters.runparams>> <</parameters.runparams>>
+        node app.js  --url << parameters.url >> --tenantCode << parameters.tenantCode >> --apiKey $<< parameters.apiKey >> --userID << parameters.userId >> --jobID << parameters.jobId >> <<#parameters.proxyHost>> --proxyHost <<parameters.proxyHost>> <</parameters.proxyHost>> <<#parameters.proxyPort>> --proxyPort <<parameters.proxyPort>> <</parameters.proxyPort>> <<#parameters.agentName>> --agentName <<parameters.agentName>> <</parameters.agentName>> <<#parameters.runparams>> --runParams <<parameters.runparams>> <</parameters.runparams>>  <<#parameters.stepFailureThreshold>> --stepFailureThreshold <<parameters.stepFailureThreshold>> <</parameters.stepFailureThreshold>> 
