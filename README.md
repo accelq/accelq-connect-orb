@@ -15,6 +15,7 @@ steps:
         proxyHost: << parameters.proxyHost >>
         proxyPort: << parameters.proxyPort >>
         agentName: << parameters.agentName >>
+        stepFailureThreshold: << parameters.stepFailureThreshold >>
 </pre>
 
 You can get ACCELQ CircleCI orb from here https://circleci.com/developer/orbs/orb/accelq/accelq-connect

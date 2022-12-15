@@ -36,6 +36,10 @@ parameters:
     default: ""
     type: string
     description: "Agent Name (Optional) on which you want to run this job"
+  stepFailureThreshold:
+    default: "0"
+    type: string
+    description: "Percentage ACCELQ test case failure (Optional), beyond which this Step in the Pipeline will be marked as a failure. If this is zero, even a single failed test will cause the Step to fail. If you never want to fail the Pipeline Step due to failing Automation tests, input -1. Input a valid integer between 0 and 100 or, -1."
 steps:
   - accelq-ci:
       url: << parameters.url >>
@@ -47,3 +51,4 @@ steps:
       proxyHost: << parameters.proxyHost >>
       proxyPort: << parameters.proxyPort >>
       runparams: << parameters.runparams >>
+      stepFailureThreshold: << parameters.stepFailureThreshold >>
