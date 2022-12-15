@@ -18,4 +18,4 @@ usage:
             agentName: "POC"
             proxyHost: "localhost"
             proxyPort: "9090"
-            stepFailureThreshold: "20"
+            stepFailureThreshold: "10"
